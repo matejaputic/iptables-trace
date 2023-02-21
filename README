@@ -1,3 +1,16 @@
+New additions:
+
+* Added docker support, can run iptables-trace inside container, no need to install dependencies on host
+
+Examples
+
+To run:
+
+1. Build the image: `docker build -t <yourname>/iptables-trace .`
+1. Listen for traffic on port 80: `docker run -it --rm --cap-add=NET_ADMIN --cap-add=NET_RAW --network host <yourname>/iptables-trace python iptables-trace/bin/iptables-trace.py 'dst port 80'`
+
+---
+
         iptables-trace
 
 This software allows tracing a packet through the linux kernels netfilter
